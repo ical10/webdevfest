@@ -103,6 +103,7 @@ class ControllerEvent {
       include: [UserEvent]
     })
       .then(event => {
+        console.log(event);
         currentEvent = event
         return UserEvent.findAll({
           where: {
@@ -112,6 +113,7 @@ class ControllerEvent {
         })
       })
       .then(users => {
+        console.log(users);
         res.render('eventparticipant', {
           currentEvent, users
         })

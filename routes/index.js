@@ -9,11 +9,6 @@ const {isLoggedIn, isAdmin} = require('../middlewares/authentication')
 // Index / homepage
 router.get('/', Controller.showHome)
 
-// router untuk event
-router.get('/events', ControllerEvent.showAll)
-router.get('/events/en', ControllerEvent.showAllEn)
-router.get('/events/id', ControllerEvent.showAllId)
-router.get('/events/join/:id', ControllerEvent.getJoinEvent)
 
 // route for register user
 router.get('/register', ControllerUser.formRegister)
@@ -27,6 +22,11 @@ router.post('/login', ControllerUser.login)
 router.use(isLoggedIn)
 
 // route CR Event
+// router untuk event
+router.get('/events', ControllerEvent.showAll)
+router.get('/events/en', ControllerEvent.showAllEn)
+router.get('/events/id', ControllerEvent.showAllId)
+router.get('/events/join/:id', ControllerEvent.getJoinEvent)
 
 // add session if user role is admin
 router.get('/events/add', isAdmin, ControllerEvent.formAdd)
