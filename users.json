@@ -2,23 +2,29 @@
   {
     "username": "nerd123",
     "password": "nerd123",
-    "level": "novice",
-    "language": [
-      "JS",
-      "Python",
-      "Rust"
-    ],
+    "level": "beginner",
+    "language": "Python",
+    "role": "user"
+  },
+  {
+    "username": "geekweeb",
+    "password": "ilovemikasa",
+    "level": "expert",
+    "language": "JavaScript",
+    "role": "user"
+  },
+  {
+    "username": "kangbakso12",
+    "password": "sateayam",
+    "level": "intermediate",
+    "language": "C++",
     "role": "user"
   },
   {
     "username": "superadmin",
     "password": "adminpassword",
     "level": "expert",
-    "language": [
-      "Assembly",
-      "Lisp",
-      "C++"
-    ],
+    "language": "Assembly",
     "role": "admin"
   }
 ]

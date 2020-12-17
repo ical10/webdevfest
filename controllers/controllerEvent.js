@@ -1,90 +1,124 @@
 const {Event, User, UserEvent} = require('../models')
 
 
-class Controller {
-    static showAllEn(req, res) {
-        Event.findAll()
-            .then(events => {
-                res.render('../views/eventsEn.ejs', {
-                    events
-                })
-            })
-            .catch(err => res.send(err))
+class ControllerEvent {
+
+  static showAll(req, res) {
+    Event.findAll()
+      .then(events => {
+        console.log(typeof events[0].date)
+        res.render('tableEvent', {events})
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
+
+  static formAdd(req, res) {
+    res.render('addEventForm')
+  }
+
+  static addEvent(req, res) {
+    const input = {
+      name: req.body.name,
+      HTM: +req.body.HTM,
+      description: req.body.description,
+      location: req.body.location,
+      date: req.body.date,
+      tags: `${req.body.tags1},${req.body.tags2}`
     }
 
-    static showAllId(req, res) {
-        Event.findAll()
-            .then(events => {
-                res.render('../views/eventsId.ejs', {
-                    events
-                })
-            })
-            .catch(err => res.send(err))
-    }
-
-    static getEditEvent(req, res) {
-        Event.findByPk(req.params.id)
-            .then(currentEvent => {
-                res.render('../views/editEvent.ejs', {
-                    currentEvent
-                })
-            })
-            .catch(err => res.send(err))
-    }
-
-    static postEditEvent(req, res) {
-        const {title, price, description, location, date, tags} = req.body
-        Event.update({
-            title,
-            price,
-            description,
-            location,
-            date,
-            tags
-        }, {
-            where: {
-                id: req.params.id
-            }
+    Event.create(input)
+      .then(_ => {
+        res.redirect('/events')
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
+  static showAllEn(req, res) {
+    Event.findAll()
+      .then(events => {
+        res.render('eventsEn', {
+          events
         })
-            .then(events => {
-                res.redirect('/events')
-            })
-            .catch(err => res.send(err))
-    }
+      })
+      .catch(err => res.send(err))
+  }
 
-    static getDeleteEvent(req, res) {
-        Event.destroy({
-            where: {
-                id: req.params.id
-            }
+  static showAllId(req, res) {
+    Event.findAll()
+      .then(events => {
+        res.render('eventsId', {
+          events
         })
-            .then(events => {
-                res.redirect('/events')
-            })
-            .catch(err => res.send(err))
-    }
+      })
+      .catch(err => res.send(err))
+  }
 
-    static getJoinEvent(req, res) {
-        let currentEvent
-        Event.findByPk(+req.params.id, {
-            include: [UserEvent]
+  static getEditEvent(req, res) {
+    Event.findByPk(req.params.id)
+      .then(currentEvent => {
+        res.render('editEvent', {
+          currentEvent
         })
-            .then(event => {
-                currentEvent = event
-                return UserEvent.findAll({
-                    where: {
-                        EventId: +req.params.id
-                    },
-                    include: [User]
-                })
-            })
-            .then(users => {
-                res.render('../views/eventparticipant.ejs', {
-                    currentEvent, users
-                })
-            })
-            .catch(err => res.send(err))
-    }
+      })
+      .catch(err => res.send(err))
+  }
+
+  static postEditEvent(req, res) {
+    const {title, price, description, location, date, tags} = req.body
+    Event.update({
+      title,
+      price,
+      description,
+      location,
+      date,
+      tags
+    }, {
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(events => {
+        res.redirect('/events')
+      })
+      .catch(err => res.send(err))
+  }
+
+  static getDeleteEvent(req, res) {
+    Event.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(events => {
+        res.redirect('/events')
+      })
+      .catch(err => res.send(err))
+  }
+
+  static getJoinEvent(req, res) {
+    let currentEvent
+    Event.findByPk(+req.params.id, {
+      include: [UserEvent]
+    })
+      .then(event => {
+        currentEvent = event
+        return UserEvent.findAll({
+          where: {
+            EventId: +req.params.id
+          },
+          include: [User]
+        })
+      })
+      .then(users => {
+        res.render('eventparticipant', {
+          currentEvent, users
+        })
+      })
+      .catch(err => res.send(err))
+  }
 }
 
-module.exports = Controller
+module.exports = ControllerEvent

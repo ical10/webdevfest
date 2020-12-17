@@ -1,7 +1,9 @@
-const addDate = require('./helpers/addDateToJSON')
+const {format} = require('date-fns')
 
-res.locals.addDate = addDate
 
-let arr = addDate('./users.json')
 
-console.log(arr)
+const date = Date.parse("02-22-2021")
+
+const formattedDate = format(date, 'dd.MM.yyyy')
+
+console.log(date, formattedDate)

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Add Event</title>
+  <style>
+    input {
+      width: 25%;
+    }
+    label {
+      font-size: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <%- include('navbar') %>
+
+  <h1>Add Events</h1>
+  <form action="/events/add" method="post">
+
+    <label for="name">Title Event</label><br>
+    <input type="text" name="name" placeholder="e.g: Hippie dev Fair"><br><br>
+
+    <label for="HTM">HTM</label><br>
+    <input type="number" name="HTM" placeholder="e.g: 100000"><br><br>
+
+    <label for="description">Description Event</label><br>
+    <textarea type="text" name="description" rows="10" cols="50" placeholder="e.g: Type your description of games, prize or anything you want to describe"></textarea><br><br>
+
+    <label for="location">Location Event</label><br>
+    <input type="text" name="location" placeholder="e.g: Jakarta IDN"><br><br>
+
+    <label for="date">Date Event</label><br>
+    <input type="date" name="date"><br><br>
+
+    <label for="tags1">Language</label><br>
+    <select name="tags1">
+      <option value="">--Language--</option>
+      <option value="javascript">javascript</option>
+      <option value="python">python</option>
+      <option value="java">java</option>
+      <option value="c++">c++</option>
+      <option value="others">others</option>
+    </select><br><br>
+
+    <label for="tags2">Level</label><br>
+    <select name="tags2">
+      <option value="">--Level of Programming--</option>
+      <option value="beginner">beginner</option>
+      <option value="intermediate">intermediate</option>
+      <option value="senior">senior</option>
+    </select><br><br>
+    
+     <button type="submit">Add Events</button>
+  </form>
+  <%- include('footer') %> 
+</body>
+</html>

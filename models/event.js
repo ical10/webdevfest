@@ -1,4 +1,6 @@
 'use strict';
+const {format} = require('date-fns')
+
 const {
   Model
 } = require('sequelize');
@@ -13,13 +15,20 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Event.hasMany(models.UserEvent)
     }
+
+    // Instance Methods Convert Date
+    convertDate(input) {
+      const formattedDate = format(Date.parse(input), 'dd.MM.yyyy')
+      //const output = `${input.toDateString()}`;
+      return formattedDate
+    }
   };
   Event.init({
     name: DataTypes.STRING,
     price: DataTypes.STRING,
     description: DataTypes.TEXT,
     location: DataTypes.STRING,
-    date: DataTypes.DATEONLY,
+    date: DataTypes.DATE,
     tags: DataTypes.STRING
   }, {
     sequelize,

@@ -2,8 +2,8 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "webdevfest_db",
-    "host": "127.0.0.1",
+    "database": "db_pairProject",
+    "host": "localhost",
     "dialect": "postgres"
   },
   "test": {

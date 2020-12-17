@@ -2,25 +2,25 @@
   {
     "name": "JSworld Conference",
     "price": 800000,
-    "description": "JSworld Conference Online is the Largest & Most Epic JavaScript Conference and Community Event of 2021. Learn & Talk directly with the JavaScript Frontend Developer Leaders from around the world.",
+    "description": "JSworld Conference Online is the Largest & Most Epic JavaScript Conference and Community Event of 2021. ",
     "location": "Amsterdam, The Netherlands",
     "date": "02-22-2021",
-    "tags": "Vue.js, Nuxt.js, Typescript, JavaScript"
+    "tags": "JavaScript, Beginner"
   },
   {
     "name": "DeveloperWeek",
     "price": 750000,
-    "description": "DeveloperWeek covers all new technologies. Our conference and workshops invite you to get intro lessons (or advanced tips and tricks) on technologies like VR Dev, Artificial Intelligence Dev, Blockchain Dev, IoT Dev, Serverless technology, Microservices technology, new JavaScript frameworks, and more.",
+    "description": "Our conference and workshops invite you to get intro lessons (or advanced tips and tricks) on technologies like VR Dev, Artificial Intelligence Dev, Blockchain Dev, and many more.",
     "location": "New York, USA",
     "date": "02-17-2021",
-    "tags": "IoT, Hackathon, API & Microservices, Containers & Kubernetes"
+    "tags": "C++, Expert"
   },
   {
     "name": "JSCamp Barcelona",
     "price": 2000000,
-    "description": "JSCamp is an International single-track conference curated, deeply technical, covering all about modern web technologies. There is a lot to gain from sharing best practices, learnings, and insights from different tools, frameworks and techniques across the web stack.",
+    "description": "JSCamp is an International single-track conference curated, deeply technical, covering all about modern web technologies.",
     "location": "Spain, Barcelona",
     "date": "07-15-2021",
-    "tags": "Write less, do more, Error Handling: doing it right!, CSS in JS -  The good, The bad, and The ugly"
+    "tags": "Python, Intermediate"
   }
 ]
