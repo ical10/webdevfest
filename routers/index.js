@@ -15,5 +15,7 @@ router.post('/events/edit/:id', eventController.postEditEvent)
 
 router.get('/events/delete/:id', eventController.getDeleteEvent)
 
+router.get('/events/join/:id', eventController.getJoinEvent)
+
 
 module.exports = router

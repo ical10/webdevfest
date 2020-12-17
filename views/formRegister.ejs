@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Register</title>
+  <style>
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <%- include('navbar') %>
+  
+  <h1>Welcome New Developer</h1>
+
+  <h3>Fill in your basic information below</h3>
+
+  <form action="/register" method="post">
+    <label for="username">Username:</label><br>
+    <input type="text" name="username" placeholder="e.g: johndoe"><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" name="password"><br><br>
+
+    <label for="level">Level:</label><br>
+    <select name="level" >
+      <option value="">--Choose One--</option>
+      <option value="beginner">Beginner</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="senior">Senior</option>
+    </select><br><br>
+
+    <label for="language">Language</label><br>
+    <select name="language">
+      <option value="">--Choose One--</option>
+      <option value="javascript">JavaScript</option>
+      <option value="python">Python</option>
+      <option value="java">Java</option>
+      <option value="c++">C++</option>
+      <option value="others">Others</option>
+    </select><br><br>
+
+    <button type="submit">Save</button>
+    <button type="reset">Cancel</button>
+  </form>
+
+  <%- include('footer') %> 
+</body>
+</html>

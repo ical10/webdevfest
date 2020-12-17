@@ -1,4 +1,4 @@
-const {Event, User} = require('../models')
+const {Event, User, UserEvent} = require('../models')
 
 
 class Controller {
@@ -60,6 +60,28 @@ class Controller {
         })
             .then(events => {
                 res.redirect('/events')
+            })
+            .catch(err => res.send(err))
+    }
+
+    static getJoinEvent(req, res) {
+        let currentEvent
+        Event.findByPk(+req.params.id, {
+            include: [UserEvent]
+        })
+            .then(event => {
+                currentEvent = event
+                return UserEvent.findAll({
+                    where: {
+                        EventId: +req.params.id
+                    },
+                    include: [User]
+                })
+            })
+            .then(users => {
+                res.render('../views/eventparticipant.ejs', {
+                    currentEvent, users
+                })
             })
             .catch(err => res.send(err))
     }

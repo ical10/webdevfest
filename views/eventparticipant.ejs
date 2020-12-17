@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Attendees</title>
+</head>
+
+<body>
+    <%- include ('partials/navbar.ejs', {pageName: "List of Attendees"})%>
+    <h1><%= currentEvent.name %></h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>username</th>
+                <th>level</th>
+                <th>language</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <% users.forEach((el) => {%>
+        <tbody>
+            <tr>
+                <td><%= el.User.username %></td>
+                <td><%= el.User.level %> </td>
+                <td><%= el.User.language%> </td>
+                <td><p><a href="/events/unregister/<%=el.User.id%>" onclick="return confirm('are you sure?');">Unregister</a></p></td>
+            </tr>
+        </tbody>
+        <%})%>
+    </table>
+    <%- include ('partials/footer.ejs') %> 
+</body>
+
+</html>
+

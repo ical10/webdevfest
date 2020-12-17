@@ -21,6 +21,7 @@
                 <th>Location</th>
                 <th>Date</th>
                 <th>Tags</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <% events.forEach((el) => {%>
@@ -30,7 +31,9 @@
                 <td><%= currencyConverter(el.price, "IDR") %></td>
                 <td><%= el.description %></td>
                 <td><%= el.location %></td>
-                <td><a href="/events/edit/<%=el.id%>">Edit</a> | <a href="/events/delete/<%=el.id%>">Delete</a> | <a href="/events/join/<%=el.id%>">Join!</a></td>
+                <td><%= el.date %></td>
+                <td><%= el.tags %></td>
+                <td><a href="/events/edit/<%=el.id%>">Edit</a> | <a href="/events/delete/<%=el.id%>">Delete</a> | <a href="/events/join/<%=el.id%>" onclick="return alert('Thanks for registering! You'll be redirected.')">Join!</a></td>
             </tr>
         </tbody>
         <%})%>
