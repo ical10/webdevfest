@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+  <style>
+    .card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background-color: rgba(255, 127, 80, 0.658);
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+  </style>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <h2>All Events</h2>
+
+  <a href="/events/add">Add Events</a><br><br>
+  <a href="/events/id">Prefer concise version? Click here!</a><br><br>
+
+  <% events.forEach(element => {%>
+    <div class="card">
+      <div class="container">
+        <h2><b><%= element.name %></b></h2>
+        <h3>Location: <%= element.location %></h3>
+        <h4>Date: <%= element.convertDate(element.date) %></h4>
+        <p><%= element.description %></p>
+        <h4>Price: <%= element.price %></h4>
+        <p>Tags: <%= element.tags %></p>
+      </div>
+    </div><br><br>
+  <%}) %> 
+</body>
+
+<%- include('partials/footer') %> 
+</html>
