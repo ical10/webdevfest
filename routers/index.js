@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const homeController = require('../controllers/index')
-const eventController = require('../controllers/eventController')
+const eventController = require('../controllers/controllerEvent')
 
 router.get('/', homeController.index)
 
