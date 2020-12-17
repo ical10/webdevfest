@@ -6,7 +6,6 @@ class ControllerEvent {
   static showAll(req, res) {
     Event.findAll()
       .then(events => {
-        console.log(typeof events[0].date)
         res.render('tableEvent', {events})
       })
       .catch(err => {
@@ -21,7 +20,7 @@ class ControllerEvent {
   static addEvent(req, res) {
     const input = {
       name: req.body.name,
-      HTM: +req.body.HTM,
+      price: +req.body.price,
       description: req.body.description,
       location: req.body.location,
       date: req.body.date,

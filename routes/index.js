@@ -13,9 +13,6 @@ router.get('/', Controller.showHome)
 router.get('/events', ControllerEvent.showAll)
 router.get('/events/en', ControllerEvent.showAllEn)
 router.get('/events/id', ControllerEvent.showAllId)
-router.get('/events/edit/:id', ControllerEvent.getEditEvent)
-router.post('/events/edit/:id', ControllerEvent.postEditEvent)
-router.get('/events/delete/:id', ControllerEvent.getDeleteEvent)
 router.get('/events/join/:id', ControllerEvent.getJoinEvent)
 
 // route for register user
@@ -34,5 +31,8 @@ router.use(isLoggedIn)
 // add session if user role is admin
 router.get('/events/add', isAdmin, ControllerEvent.formAdd)
 router.post('/events/add', isAdmin, ControllerEvent.addEvent)
+router.get('/events/edit/:id', isAdmin, ControllerEvent.getEditEvent)
+router.post('/events/edit/:id', isAdmin, ControllerEvent.postEditEvent)
+router.get('/events/delete/:id', isAdmin, ControllerEvent.getDeleteEvent)
 
 module.exports = router
