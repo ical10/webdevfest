@@ -1,15 +1,15 @@
 'use strict';
-//const express = require('express')
-//const app = express()
-//const addDate = require('../helpers/addDateToJSON')
 
-//app.locals.addDate = addDate
-
-//const dummyUsers = (addDate('../users.json'))
-// di hardcode aja lah
+const fs = require('fs')
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    const users = JSON.parse(fs.readmileSync('./users.json', 'utf8'))
+
+    users.forEach(user => {
+      user.createdAt = new Date()
+      user.updatedAt = new Date()
+    })
     /**
      * Add seed commands here.
      *
@@ -19,10 +19,10 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    return queryInterface.bulkInsert('Users', dummyUsers, {})
+    return queryInterface.bulkInsert('Users', users, {})
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: (queryInterface, Sequelize) => {
     /**
      * Add commands to revert seed here.
      *

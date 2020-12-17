@@ -1,14 +1,15 @@
 'use strict';
-//const express = require('express')
-//const app = express()
-//const addDate = require('../helpers/addDateToJSON')
 
-//app.locals.addDate = addDate
-
-//const dummyEvents = (addDate('../events.json'))
+const fs = require('fs')
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    const events = JSON.parse(fs.readFileSync('./events.json', 'utf8'))
+
+    events.forEach(event => {
+      event.createdAt = new Date()
+      event.updatedAt = new Date()
+    })
     /**
      * Add seed commands here.
      *
@@ -18,7 +19,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    return queryInterface.bulkInsert('Events', dummyEvents, {})
+    return queryInterface.bulkInsert('Events', events, {})
   },
 
   down: (queryInterface, Sequelize) => {
