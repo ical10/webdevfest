@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+</head>
+
+<body>
+    <%- include ('partials/navbar.ejs', {pageName: "Edit Event"})%>
+  <form action="/event/edit/<%= currentEvent.id %>" method="POST">
+        <label for="title">Name</label><br>
+        <input type="text" id="title" name="title" value="<%= currentEvent.title%>"><br>
+        <label for="price">Price</label><br>
+        <input type="text" id="price" name="price" value="<%= currentEvent.price%>"><br>
+        <label for="description">Description</label><br>
+        <input type="text" id="description" name="description" value="<%= currentEvent.description%>"><br>
+        <label for="location">Location</label><br>
+        <input type="text" id="location" name="location" value="<%= currentEvent.location%>"><br>
+        <label for="date">Date</label><br>
+        <input type="date" id="date" name="date" value="<%= currentEvent.date%>"><br>
+        <label for="Tags">Tags</label><br>
+        <input type="text" id="tags" name="tags" value="<%= currentEvent.tags%>"><br>
+        <input type="submit" value="Save"><a href="/event"> Cancel </a>
+  </form>
+  <%- include ('partials/footer.ejs') %>
+</body>
+
+</html>

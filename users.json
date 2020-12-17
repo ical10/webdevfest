@@ -1,0 +1,24 @@
+[
+  {
+    "username": "nerd123",
+    "password": "nerd123",
+    "level": "novice",
+    "language": [
+      "JS",
+      "Python",
+      "Rust"
+    ],
+    "role": "user"
+  },
+  {
+    "username": "superadmin",
+    "password": "adminpassword",
+    "level": "expert",
+    "language": [
+      "Assembly",
+      "Lisp",
+      "C++"
+    ],
+    "role": "admin"
+  }
+]
