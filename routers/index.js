@@ -5,15 +5,15 @@ const eventController = require('../controllers/eventController')
 router.get('/', homeController.index)
 
 // router untuk event
-router.get('/event', eventController.showAll)
+router.get('/events/en', eventController.showAllEn)
 
-router.get('/event/edit/:id', eventController.getEditEvent)
+router.get('/events/id', eventController.showAllId)
 
-router.post('/event/edit/:id', eventController.postEditEvent)
+router.get('/events/edit/:id', eventController.getEditEvent)
 
-router.get('/event/delete/:id', (req, res) => {
+router.post('/events/edit/:id', eventController.postEditEvent)
 
-})
+router.get('/events/delete/:id', eventController.getDeleteEvent)
 
 
 module.exports = router

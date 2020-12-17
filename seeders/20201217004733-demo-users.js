@@ -4,7 +4,7 @@ const fs = require('fs')
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    const users = JSON.parse(fs.readmileSync('./users.json', 'utf8'))
+    const users = JSON.parse(fs.readFileSync('./users.json', 'utf8'))
 
     users.forEach(user => {
       user.createdAt = new Date()

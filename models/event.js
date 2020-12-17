@@ -11,12 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Event.hasMany(models.UserEvent)
     }
   };
   Event.init({
     name: DataTypes.STRING,
     price: DataTypes.STRING,
-    description: DataTypes.STRING,
+    description: DataTypes.TEXT,
     location: DataTypes.STRING,
     date: DataTypes.DATEONLY,
     tags: DataTypes.STRING

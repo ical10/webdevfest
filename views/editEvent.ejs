@@ -1,31 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Event</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Edit Event</title>
+  <style>
+    input {
+      width: 25%;
+    }
+    label {
+      font-size: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+  </style>
 </head>
-
 <body>
-    <%- include ('partials/navbar.ejs', {pageName: "Edit Event"})%>
-  <form action="/event/edit/<%= currentEvent.id %>" method="POST">
-        <label for="title">Name</label><br>
-        <input type="text" id="title" name="title" value="<%= currentEvent.title%>"><br>
-        <label for="price">Price</label><br>
-        <input type="text" id="price" name="price" value="<%= currentEvent.price%>"><br>
-        <label for="description">Description</label><br>
-        <input type="text" id="description" name="description" value="<%= currentEvent.description%>"><br>
-        <label for="location">Location</label><br>
-        <input type="text" id="location" name="location" value="<%= currentEvent.location%>"><br>
-        <label for="date">Date</label><br>
-        <input type="date" id="date" name="date" value="<%= currentEvent.date%>"><br>
-        <label for="Tags">Tags</label><br>
-        <input type="text" id="tags" name="tags" value="<%= currentEvent.tags%>"><br>
-        <input type="submit" value="Save"><a href="/event"> Cancel </a>
-  </form>
-  <%- include ('partials/footer.ejs') %>
-</body>
+  <%- include('./partials/navbar') %>
 
-</html>
+  <h1>Edit Event</h1>
+  <form action="/events/edit/<%= currentEvent.id%>" method="post" style="overflow-y: scroll;">
+
+    <label for="name">Title Event</label><br>
+    <input type="text" name="name" value="<%= currentEvent.name %>"><br><br>
+
+    <label for="price">Price</label><br>
+    <input type="number" name="price" value="<%= currentEvent.price %>"><br><br>
+
+    <label for="description">Description Event</label><br>
+    <textarea type="text" name="description" rows="3" cols="50" value="<%= currentEvent.description %>"></textarea><br><br>
+
+    <label for="location">Location Event</label><br>
+    <input type="text" name="location" value="<%= currentEvent.location %>"><br><br>
+
+    <label for="date">Date Event</label><br>
+    <input type="date" name="date" value="<%= currentEvent.date %>"><br><br>
+
+    <label for="tags1">Language</label><br>
+    <select name="tags1">
+      <option value="">--Language--</option>
+      <option value="javascript">javascript</option>
+      <option value="python">python</option>
+      <option value="java">java</option>
+      <option value="c++">c++</option>
+      <option value="others">others</option>
+    </select><br><br>
+
+    <label for="tags2">Level</label><br>
+    <select name="tags2">
+      <option value="">--Level of Programming--</option>
+      <option value="beginner">beginner</option>
+      <option value="intermediate">intermediate</option>
+      <option value="senior">senior</option>
+    </select><br><br>
+
+     <button type="submit" onclick="return confirm('Are you sure to edit this event?');">Edit Event</button>
+  </form>
+  <%- include('./partials/footer') %> 
+</body>
+</html> 

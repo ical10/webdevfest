@@ -9,8 +9,10 @@
 
 <body>
     <%- include ('partials/navbar.ejs', {pageName: "Events"})%>
-    <p><a href="/event/add">Add Event</a></p>
+    <p><a href="/events/add">Add Event</a></p>
     <table border="1">
+        <h2>Currency</h2>
+    <p><a href="/events/en">USD</a> | <a href="/events/id">IDR</a></p>
         <thead>
             <tr>
                 <th>Title</th>
@@ -25,10 +27,10 @@
         <tbody>
             <tr>
                 <td><%= el.name %></td>
-                <td><%= el.price %></td>
+                <td><%= currencyConverter(el.price, "IDR") %></td>
                 <td><%= el.description %></td>
                 <td><%= el.location %></td>
-                <td><a href="/event/edit/<%=el.id%>">Edit</a> | <a href="/event/delete/<%=el.id%>">Delete</a> | <a href="/event/join/<%=el.id%>">Join!</a></td>
+                <td><a href="/events/edit/<%=el.id%>">Edit</a> | <a href="/events/delete/<%=el.id%>">Delete</a> | <a href="/events/join/<%=el.id%>">Join!</a></td>
             </tr>
         </tbody>
         <%})%>
@@ -37,4 +39,4 @@
 </body>
 
 </html>
-%
+

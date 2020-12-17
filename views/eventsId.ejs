@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+
+<body>
+    <%- include ('partials/navbar.ejs', {pageName: "Events"})%>
+    <p><a href="/events/add">Add Event</a></p>
+    <table border="1">
+        <p>Currency</p>
+    <p><a href="/events/en">USD</a> | <a href="/events/id">IDR</a></p>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Tags</th>
+            </tr>
+        </thead>
+        <% events.forEach((el) => {%>
+        <tbody>
+            <tr>
+                <td><%= el.name %></td>
+                <td><%= currencyConverter(el.price, "default") %></td>
+                <td><%= el.description %></td>
+                <td><%= el.location %></td>
+                <td><a href="/events/edit/<%=el.id%>">Edit</a> | <a hef="/events/delete/<%=el.id%>">Delete</a> | <a href="/events/join/<%=el.id%>">Join!</a></td>
+            </tr>
+        </tbody>
+        <%})%>
+    </table>
+    <%- include ('partials/footer.ejs') %> 
+</body>
+
+</html>

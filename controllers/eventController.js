@@ -1,10 +1,21 @@
 const {Event, User} = require('../models')
 
+
 class Controller {
-    static showAll(req, res) {
+    static showAllEn(req, res) {
         Event.findAll()
             .then(events => {
-                res.render('../views/event.ejs', {
+                res.render('../views/eventsEn.ejs', {
+                    events
+                })
+            })
+            .catch(err => res.send(err))
+    }
+
+    static showAllId(req, res) {
+        Event.findAll()
+            .then(events => {
+                res.render('../views/eventsId.ejs', {
                     events
                 })
             })
@@ -36,7 +47,19 @@ class Controller {
             }
         })
             .then(events => {
-                res.redirect('/event')
+                res.redirect('/events')
+            })
+            .catch(err => res.send(err))
+    }
+
+    static getDeleteEvent(req, res) {
+        Event.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(events => {
+                res.redirect('/events')
             })
             .catch(err => res.send(err))
     }
