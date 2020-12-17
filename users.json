@@ -1,0 +1,30 @@
+[
+  {
+    "username": "nerd123",
+    "password": "nerd123",
+    "level": "beginner",
+    "language": "Python",
+    "role": "user"
+  },
+  {
+    "username": "geekweeb",
+    "password": "ilovemikasa",
+    "level": "expert",
+    "language": "JavaScript",
+    "role": "user"
+  },
+  {
+    "username": "kangbakso12",
+    "password": "sateayam",
+    "level": "intermediate",
+    "language": "C++",
+    "role": "user"
+  },
+  {
+    "username": "superadmin",
+    "password": "adminpassword",
+    "level": "expert",
+    "language": "Assembly",
+    "role": "admin"
+  }
+]

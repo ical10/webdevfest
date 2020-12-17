@@ -1,0 +1,26 @@
+[
+  {
+    "name": "JSworld Conference",
+    "price": 800000,
+    "description": "JSworld Conference Online is the Largest & Most Epic JavaScript Conference and Community Event of 2021. ",
+    "location": "Amsterdam, The Netherlands",
+    "date": "2021-02-21",
+    "tags": "JavaScript, Beginner"
+  },
+  {
+    "name": "DeveloperWeek",
+    "price": 750000,
+    "description": "Our conference and workshops invite you to get intro lessons (or advanced tips and tricks) on technologies like VR Dev, Artificial Intelligence Dev, Blockchain Dev, and many more.",
+    "location": "New York, USA",
+    "date": "2021-07-21",
+    "tags": "C++, Expert"
+  },
+  {
+    "name": "JSCamp Barcelona",
+    "price": 2000000,
+    "description": "JSCamp is an International single-track conference curated, deeply technical, covering all about modern web technologies.",
+    "location": "Spain, Barcelona",
+    "date": "2021-07-15",
+    "tags": "Python, Intermediate"
+  }
+]
