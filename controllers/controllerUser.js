@@ -40,6 +40,10 @@ class ControllerUser {
           const validate = bcrypt.compareSync(input.password, user.password)
 
           if (validate) {
+            // add session in before login
+            req.session.userID = user.id
+            req.session.role = user.role
+
             res.redirect('/events')
           } else {
             res.send('Username & Password mismatch')
